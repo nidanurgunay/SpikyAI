@@ -1,0 +1,6 @@
+#navbar_container {
+    background-color: white;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
