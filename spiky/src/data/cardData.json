@@ -1,0 +1,68 @@
+[{
+        "id": 0,
+        "logo": "../../assets/icons/functionality-card-image-01.png",
+        "color": "#FA6267",
+        "header1": "Cross-Module Analysis",
+        "header2": "- Spiky.ai Platform",
+        "text": "Deliver complete analysis across Spiky products by using AI algorithms and deep analytics methods. Create new data points from cross-module interactions to further understand problems.",
+        "link": false,
+        "linkHeader": "",
+        "margin": "normal"
+
+    },
+    {
+        "id": 1,
+        "logo": "../assets/icons/functionality-card-image-02.png",
+        "color": "#FACB62",
+        "header1": "Personalization",
+        "header2": "- Spiky.ai Platform",
+        "text": "All students need personal attention to enhance their performance. Spiky.ai recognizes the uniqueness of each student and creates a custom-crafted educational experience.",
+        "link": false,
+        "linkHeader": "",
+        "margin": "down"
+    },
+    {
+        "id": 2,
+        "logo": "../assets/icons/functionality-card-image-03.png",
+        "color": "#16D47C",
+        "header1": "Strategic Decision",
+        "header2": "- Spiky.ai Platform",
+        "text": "Reduce the management team's overhead and provide a comprehensive understanding of your institutional needs.",
+        "link": false,
+        "linkHeader": "",
+        "margin": "normal"
+    },
+    {
+        "id": 3,
+        "logo": "../assets/icons/functionality-card-image-04.png",
+        "color": "#16D47C",
+        "header1": "Live Emotion Analysis",
+        "header2": "- Sentiment Detective",
+        "text": "Deliver complete analysis across Spiky products by using AI algorithms and deep analytics methods. Create new data points from cross-module interactions to further understand problems.",
+        "link": true,
+        "linkHeader": "> Understand Your Students",
+        "margin": "normal"
+    },
+    {
+        "id": 4,
+        "logo": "../assets/icons/functionality-card-image-05.png",
+        "color": "#2077D1",
+        "header1": "Future Performance Prediction",
+        "header2": "- Performance Oracle",
+        "text": "Determine the right problems to concentrate on to increase student success and teacher performance. Observe future performance with up to 92% accuracy.",
+        "link": true,
+        "linkHeader": "> Begin Predicting The Future",
+        "margin": "down"
+    },
+    {
+        "id": 5,
+        "logo": "../assets/icons/functionality-card-image-06.png",
+        "color": "#FA6267",
+        "header1": "Equal Learning Environment",
+        "header2": "- Exam Proctor",
+        "text": "Deliver a secured exam environment for institutions. Create equal learning environment opportunities for students.",
+        "link": true,
+        "linkHeader": "> Create a Fair Environment",
+        "margin": "normal"
+    }
+]
