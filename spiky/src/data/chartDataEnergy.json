@@ -11,6 +11,16 @@
                     "since": "2015-03-08T16:00:00Z",
                     "till": "2015-03-08T18:00:00Z",
                     "title": "Whatever"
+                },
+                {
+                    "since": "2015-03-08T19:00:00Z",
+                    "till": "2015-03-08T19:15:00Z",
+                    "title": "Whatever"
+                },
+                {
+                    "since": "2015-03-08T19:30:00Z",
+                    "till": "2015-03-08T21:00:00Z",
+                    "title": "Whatever"
                 }
             ],
             "barColor": "#2077D1"
@@ -18,7 +28,7 @@
         {
             "periods": [{
                     "since": "2015-03-08T07:00:00Z",
-                    "till": "2015-03-08T11:00:00Z",
+                    "till": "2015-03-08T09:00:00Z",
                     "title": "ANL Scheduled Maintenance"
                 },
                 {

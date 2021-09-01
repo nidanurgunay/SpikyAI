@@ -9,35 +9,22 @@ import {
 } from "react-timeseries-charts";
 import { TimeSeries, TimeRangeEvent, TimeRange } from "pondjs";
 import EnergyChart from "../../data/chartDataEnergy.json"
-const periods = [
-  {
-    since: "2015-03-08T09:00:00Z",
-    till: "2015-03-08T11:00:00Z",
-    title: "ANL Scheduled Maintenance"
-  },
-  {
-    since: "2015-03-08T16:00:00Z",
-    till: "2015-03-08T18:00:00Z",
-    title: "Whatever"
-  }
-];
 
-const periods2 = [
-    {
-      since: "2015-03-09T09:00:00Z",
-      till: "2015-03-09T11:00:00Z",
-      title: "ANL Scheduled Maintenance"
-    },
-    {
-      since: "2015-03-09T16:00:00Z",
-      till: "2015-03-09T18:00:00Z",
-      title: "Whatever"
-    }
-  ];
-
+ 
   
-  function outageEventStyleFunc(event, state ) {
-    // const color = event.get("type") === "Planned" ? "#998ec3" : "#f1a340";
+
+function BarChart() {
+
+  const  events = EnergyChart.data.at(0).periods.map(({ since, till, ...data }) => {
+    let range = new TimeRange(new Date(since), new Date(till));
+    return new TimeRangeEvent(range, data);
+    });
+  var series = new TimeSeries({ events });
+  console.log("seriess",series)
+     
+  const outageEventStyleFunc = (event, state) => {
+    console.log(state)
+    console.log(event.get("type"))
     let COLOR = "#2077D1";
     switch (state) {
       case "normal":
@@ -46,35 +33,24 @@ const periods2 = [
         };
       case "hover":
         return {
-          fill: COLOR,
-          opacity: 0.4
+          fill: COLOR
         };
       default:
-      //pass
     }
   }
 
-function BarChart() {
-
-    const  events = EnergyChart.data.at(0).periods.map(({ since, till, ...data }) => {
-        let range = new TimeRange(new Date(since), new Date(till));
-        return new TimeRangeEvent(range, data);
-      });
-   const series = new TimeSeries({ events });
-console.log("seriess",series)
-    
-function handleSeries(period){
+    const handleSeries = (period) =>{
         console.log("period", period)
-        const  event = period.map(({ since, till, ...data }) => {
+        const  events = period.map(({ since, till, ...data }) => {
             let range = new TimeRange(new Date(since), new Date(till));
             return new TimeRangeEvent(range, data);
-          });
-       const Series = new TimeSeries({event});
-       console.log("Series",Series)
-        return Series;
+            });
+        series =  new TimeSeries({events});
+        return series;
     }
 
   let [timerange, setTimerange] = useState(series.timerange());
+  
   return (
     <ChartContainer
       timeRange={timerange}
@@ -86,9 +62,23 @@ function handleSeries(period){
         <ChartRow height="50">
         <Charts>
             <EventChart
-            series={series}
+            series={handleSeries(chart.periods)}
             size={50}
-            style={(e)=>outageEventStyleFunc(e)}
+            style={(event, state) => {
+                let COLOR = chart.barColor;
+                switch (state) {
+                  case "normal":
+                    return {
+                      fill: COLOR
+                    };
+                  case "hover":
+                    return {
+                      fill: COLOR
+                    };
+                  default:
+                }
+              }}
+            label={e => e.get("title")} 
             />
         </Charts>
         </ChartRow>
