@@ -1,97 +1,108 @@
-import React from 'react';
-import ReactApexChart from "react-apexcharts";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-class Columnrange extends React.Component {
-	constructor() {
-		super();
+import {
+  ChartContainer,
+  ChartRow,
+  Charts,
+  YAxis,
+  Resizable,
+  EventChart
+} from "react-timeseries-charts";
+import { TimeSeries, TimeRangeEvent, TimeRange } from "pondjs";
+import EnergyChart from "../../data/chartDataEnergy.json"
 
-		this.state = {
 
-			series: [
-				{
-					data: [
-						{
-							x: 'Energetic',
-							y: [
-								new Date('2019-02-27').getTime(),
-								new Date('2019-03-04').getTime()
-							],
-							fillColor: '#2077D1'
-						},
-						{
-							x: 'Monotic',
-							y: [
-								new Date('2019-03-04').getTime(),
-								new Date('2019-03-08').getTime()
-							],
-							fillColor: '#8F8AAB'
-						},
-						{
-							x: 'Monotic',
-							y: [
-								new Date('2019-03-07').getTime(),
-								new Date('2019-03-10').getTime()
-							],
-							fillColor: '#8F8AAB'
-						}
-					]
-				}
-			],
-			options: {
-				chart: {
-					height: 350,
-					type: 'rangeBar'
-				},
-				plotOptions: {
-					bar: {
-						horizontal: true,
-						distributed: true,
-						dataLabels: {
-							hideOverflowingLabels: false
-						}
-					}
-				},
-				dataLabels: {
-					enabled: true,
-					
-					style: {
-					  colors: ['#f3f4f5', '#fff']
-					}
-				  },
-				xaxis: {
-					type: 'datetime',
-					datetimeUTC: true,
-					datetimeFormatter: {
-						year: 'yyyy',
-						month: "MMM 'yy",
-						day: 'dd MMM',
-						hour: 'HH:mm',
-					},
-				},
-				yaxis: {
-					show: false
-				},
-				grid: {
-					row: {
-						colors: ['#f3f4f5', '#fff'],
-						opacity: 1
-					}
-				}
-			},
-		};
-	}
-	render() {
-		return (
-			<div id="chart">
-				<ReactApexChart
-				 options={this.state.options} 
-				 series={this.state.series} 
-				 type="rangeBar" 
-				 height={350} />
-			</div>
-		);
-	}
-}
+import "./chart.css"
 
-export default Columnrange;
- 
+function BarChart(props) {
+
+  const events = EnergyChart.data.at(0).periods.map(({ since, till, ...data }) => {
+    let range = new TimeRange(new Date(since), new Date(till));
+    return new TimeRangeEvent(range, data);
+  });
+  var series = new TimeSeries({ events });
+  console.log("seriess", series)
+
+  const outageEventStyleFunc = (event, state) => {
+    console.log(state)
+    console.log(event.get("type"))
+    let COLOR = "#2077D1";
+    switch (state) {
+      case "normal":
+        return {
+          fill: COLOR
+        };
+      case "hover":
+        return {
+          fill: COLOR
+        };
+      default:
+    }
+  }
+
+  const handleSeries = (period) => {
+    console.log("period", period)
+    const events = period.map(({ since, till, ...data }) => {
+      let range = new TimeRange(new Date(since), new Date(till));
+      return new TimeRangeEvent(range, data);
+    });
+    series = new TimeSeries({ events });
+    return series;
+  }
+
+  let [timerange, setTimerange] = useState(series.timerange());
+
+  return (
+    <div id="chart_card">
+  
+      <div id="chart_section">
+
+        <div id="chart">
+          <Resizable>
+            <ChartContainer
+            
+              timeRange={timerange}
+              enablePanZoom={true}
+              onTimeRangeChanged={setTimerange}
+              width="100%"
+            >
+              {EnergyChart.data.map((chart) =>
+
+                <ChartRow height="50">
+                  <Charts>
+                    <EventChart
+                      series={handleSeries(chart.periods)}
+                      size={50}
+                      style={(event, state) => {
+                        let COLOR = chart.barColor;
+                        switch (state) {
+                          case "normal":
+                            return {
+                              fill: COLOR
+                            };
+                          case "hover":
+                            return {
+                              fill: COLOR
+                            };
+                          default:
+                        }
+                      }}
+                      label={e => e.get("title")}
+                    />
+                  </Charts>
+                </ChartRow>
+              )}
+
+            </ChartContainer>
+          </Resizable>
+        </div>
+      </div>
+      <div id="button_container">
+        <button className="button">Click Me</button>
+      </div>
+    </div>
+  );
+};
+
+export default BarChart;

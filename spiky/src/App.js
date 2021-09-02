@@ -14,19 +14,17 @@ function App() {
   return (
     <div className="App">
 
-   <Router>
-
-   <NavBar></NavBar>
-      <Switch>
-      <Route exact path="/">
+      <Router>
+        <NavBar></NavBar>
+        <Switch>
+          <Route exact path="/">
             <Spiky />
           </Route>
           <Route path="/charts">
-            <ChartPage/>
+            <ChartPage />
           </Route>
         </Switch>
-   
-    </Router>
+      </Router>
     </div>
   );
 }

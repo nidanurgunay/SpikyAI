@@ -1,0 +1,16 @@
+#chart_container {
+    background-image: url(../../assets/backgrounds/functionality-background-image.png);
+    height: auto;
+    padding: 80px 30px;
+    width: 100%;
+}
+
+#area {
+    height: auto;
+    background-color: #2077D1;
+    width: 40px;
+}
+
+#chart_wrapper {
+    width: 90%;
+}
