@@ -1,9 +1,9 @@
 #chart_card {
-    width: 90%;
+    width: auto;
     padding: 50px;
     margin: auto;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 0px 50px 50px 0px;
 }
 
 #chart_section {
@@ -27,7 +27,7 @@
 
 .button {
     position: relative;
-    background-color: #04AA6D;
+    background-color: #2077D1;
     border: none;
     font-size: 18px;
     color: #FFFFFF;
@@ -64,5 +64,5 @@
 }
 
 .button:hover {
-    background-color: #3e8e41
+    background-color: #4f90d6;
 }

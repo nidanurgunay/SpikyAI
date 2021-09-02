@@ -65,7 +65,7 @@ function BarChart(props) {
               timeRange={timerange}
               enablePanZoom={true}
               onTimeRangeChanged={setTimerange}
-              width="100%"
+              width="88%"
             >
               {EnergyChart.data.map((chart) =>
 

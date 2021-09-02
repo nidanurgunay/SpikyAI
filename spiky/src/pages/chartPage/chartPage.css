@@ -1,16 +1,45 @@
 #chart_container {
-    background-image: url(../../assets/backgrounds/functionality-background-image.png);
+    background-color: #fafafc;
     height: auto;
-    padding: 80px 30px;
-    width: 100%;
+    padding: 50px 30px;
+    width: auto;
 }
 
 #area {
     height: auto;
-    background-color: #2077D1;
     width: 40px;
 }
 
 #chart_wrapper {
     width: 90%;
+}
+
+#chart_header_container {
+    width: 100%;
+    font-size: 28px;
+    color: #484076;
+    text-align: initial;
+    display: flex;
+    justify-content: center;
+}
+
+#chart_header {
+    width: 90%;
+    padding: 40px;
+}
+
+#side_button {
+    position: relative;
+    background-color: #2077D1;
+    border: none;
+    height: 100%;
+    border-radius: 50px 0px 0px 50px;
+}
+
+#side_button_text {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
 }
