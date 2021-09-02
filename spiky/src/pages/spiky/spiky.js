@@ -51,9 +51,7 @@ function Spiky() {
             </div>
 
        
-            <div id="chart2" style={{display:"flex", justifyContent:"center", textAlign:"center"}}>
-            <BarChart></BarChart>
-            </div>
+       
           
         </div>
           
