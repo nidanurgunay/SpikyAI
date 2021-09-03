@@ -3,38 +3,73 @@
 
         [{
             "periods": [{
+                    "since": "2015-03-07T22:00:00Z",
+                    "till": "2015-03-07T23:00:00Z",
+                    "title": "energetic"
+                },
+                {
+                    "since": "2015-03-08T02:00:00Z",
+                    "till": "2015-03-08T07:50:00Z",
+                    "title": "energetic"
+                },
+                {
+                    "since": "2015-03-08T07:55:00Z",
+                    "till": "2015-03-08T08:10:00Z",
+                    "title": "energetic"
+                },
+                {
                     "since": "2015-03-08T09:00:00Z",
                     "till": "2015-03-08T11:00:00Z",
-                    "title": "ANL Scheduled Maintenance"
+                    "title": "energetic"
+                },
+                {
+                    "since": "2015-03-08T09:00:00Z",
+                    "till": "2015-03-08T11:00:00Z",
+                    "title": "energetic"
                 },
                 {
                     "since": "2015-03-08T16:00:00Z",
                     "till": "2015-03-08T18:00:00Z",
-                    "title": "Whatever"
+                    "title": "energetic"
                 },
                 {
                     "since": "2015-03-08T19:00:00Z",
                     "till": "2015-03-08T19:15:00Z",
-                    "title": "Whatever"
+                    "title": "energetic"
                 },
                 {
                     "since": "2015-03-08T19:30:00Z",
                     "till": "2015-03-08T21:00:00Z",
-                    "title": "Whatever"
+                    "title": "energetic"
                 }
             ],
             "barColor": "#2077D1"
         },
         {
             "periods": [{
+                    "since": "2015-03-08T00:00:00Z",
+                    "till": "2015-03-08T03:10:00Z",
+                    "title": "monotonic"
+                },
+                {
+                    "since": "2015-03-08T03:18:00Z",
+                    "till": "2015-03-08T03:50:00Z",
+                    "title": "monotonic"
+                },
+                {
                     "since": "2015-03-08T07:00:00Z",
                     "till": "2015-03-08T09:00:00Z",
-                    "title": "ANL Scheduled Maintenance"
+                    "title": "monotonic"
+                },
+                {
+                    "since": "2015-03-08T12:00:00Z",
+                    "till": "2015-03-08T16:50:00Z",
+                    "title": "monotonic"
                 },
                 {
                     "since": "2015-03-08T20:00:00Z",
                     "till": "2015-03-08T23:00:00Z",
-                    "title": "Whatever"
+                    "title": "monotonic"
                 }
             ],
             "barColor": "#8F8AAB"

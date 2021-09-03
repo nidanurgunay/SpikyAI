@@ -11,38 +11,21 @@ import {
 } from "react-timeseries-charts";
 import { TimeSeries, TimeRangeEvent, TimeRange } from "pondjs";
 import EnergyChart from "../../data/chartDataEnergy.json"
+import PositivityChart from "../../data/chartDataPositivity.json"
+import ObjectivityChart from "../../data/chartDataObjectivity.json"
 
 
 import "./chart.css"
 
 function BarChart(props) {
-
-  const events = EnergyChart.data.at(0).periods.map(({ since, till, ...data }) => {
+  let [selectedChart, setSelectedChart] = useState(EnergyChart);
+  const events = selectedChart.data.at(0).periods.map(({ since, till, ...data }) => {
     let range = new TimeRange(new Date(since), new Date(till));
     return new TimeRangeEvent(range, data);
   });
   var series = new TimeSeries({ events });
-  console.log("seriess", series)
-
-  const outageEventStyleFunc = (event, state) => {
-    console.log(state)
-    console.log(event.get("type"))
-    let COLOR = "#2077D1";
-    switch (state) {
-      case "normal":
-        return {
-          fill: COLOR
-        };
-      case "hover":
-        return {
-          fill: COLOR
-        };
-      default:
-    }
-  }
 
   const handleSeries = (period) => {
-    console.log("period", period)
     const events = period.map(({ since, till, ...data }) => {
       let range = new TimeRange(new Date(since), new Date(till));
       return new TimeRangeEvent(range, data);
@@ -51,8 +34,15 @@ function BarChart(props) {
     return series;
   }
 
-  let [timerange, setTimerange] = useState(series.timerange());
 
+  let [timerange, setTimerange] = useState(series.timerange());
+  let [active, setActive] = useState("");
+
+  const HandleClick = (chart) =>{
+    console.log("dhaskj",selectedChart);
+    setSelectedChart(chart);
+    console.log("dhaskj",selectedChart);
+  }
   return (
     <div id="chart_card">
   
@@ -61,13 +51,12 @@ function BarChart(props) {
         <div id="chart">
           <Resizable>
             <ChartContainer
-            
               timeRange={timerange}
               enablePanZoom={true}
               onTimeRangeChanged={setTimerange}
               width="88%"
             >
-              {EnergyChart.data.map((chart) =>
+              {selectedChart.data.map((chart) =>
 
                 <ChartRow height="50">
                   <Charts>
@@ -99,7 +88,9 @@ function BarChart(props) {
         </div>
       </div>
       <div id="button_container">
-        <button className="button">Click Me</button>
+        <button id= "energy" className={active === "energy"  ? "button " : " button default_button "} onClick={(e) => {setActive(e.target.id);HandleClick(EnergyChart) } }>Energy</button>
+        <button id= "objectivity" className={active === "objectivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);HandleClick(ObjectivityChart)} }>Objectivity</button>
+        <button id= "positivity" className={active === "positivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);HandleClick(PositivityChart)} }>Positivity</button>
       </div>
     </div>
   );

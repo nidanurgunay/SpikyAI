@@ -9,7 +9,6 @@ import logo5 from "../../assets/icons/functionality-card-image-05.png"
 import logo6 from "../../assets/icons/functionality-card-image-06.png"
 
 
-import BarChart from '../../components/chart/chart';
 function Spiky() {
 
     const [logo, setLogo] = useState([logo1, logo2, logo3, logo4, logo5, logo6])
