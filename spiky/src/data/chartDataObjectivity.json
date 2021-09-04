@@ -1,4 +1,6 @@
 {
+    "title": "Teacher was objective most of the lecture",
+    "type": "Time Graph",
     "data":
 
         [{
@@ -13,7 +15,7 @@
                     "title": "objective"
                 },
                 {
-                    "since": "2015-03-08T18:450:00Z",
+                    "since": "2015-03-08T18:45:00Z",
                     "till": "2015-03-08T18:55:00Z",
                     "title": "objective"
                 },
@@ -28,7 +30,8 @@
                     "title": "objective"
                 }
             ],
-            "barColor": "#2077D1"
+            "barColor": "#2077D1",
+            "title": "Objective"
         },
         {
             "periods": [{
@@ -38,22 +41,36 @@
                 },
                 {
                     "since": "2015-03-08T19:00:00Z",
-                    "till": "2015-04-08T19:50:00Z",
+                    "till": "2015-03-08T19:50:00Z",
                     "title": "subjective"
                 },
                 {
                     "since": "2015-03-08T20:00:00Z",
-                    "till": "2015-04-08T00:00:00Z",
-                    "title": "subjective"
-                },
-                {
-                    "since": "2015-04-08T20:00:20Z",
-                    "till": "2015-04-08T00:05:00Z",
+                    "till": "2015-03-09T00:00:00Z",
                     "title": "subjective"
                 }
             ],
-            "barColor": "#8F8AAB"
+            "barColor": "#8F8AAB",
+            "title": "Subjective"
+
         }
-    ]
+    ],
+    "percentageData": {
+        "labels": ["objective", "subjective"],
+        "datasets": [{
+            "label": "Objectivity",
+            "backgroundColor": [
+                "#2077D1",
+                "#8F8AAB"
+            ],
+            "hoverBackgroundColor": [
+                "rgb(122 171 223)",
+                "rgb(178 176 190)"
+            ],
+            "data": [65, 59]
+        }]
+    },
+
+    "pieLabel": "Overall objectivity level percentage of the teacher"
 
 }

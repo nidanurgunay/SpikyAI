@@ -1,4 +1,6 @@
 {
+    "title": "Teacher had a balanced behavioral positivity states",
+    "type": "Time Graph",
     "data":
 
         [{
@@ -43,7 +45,8 @@
                     "title": "positive"
                 }
             ],
-            "barColor": "#2077D1"
+            "barColor": "#2077D1",
+            "title": "Positive"
         },
         {
             "periods": [{
@@ -72,7 +75,8 @@
                     "title": "neutral"
                 }
             ],
-            "barColor": "#8F8AAB"
+            "barColor": "#8F8AAB",
+            "title": "Neutral"
         },
         {
             "periods": [{
@@ -101,8 +105,29 @@
                     "title": "negative"
                 }
             ],
-            "barColor": "#8F8AAB"
+            "barColor": "#FA6267",
+            "title": "Negative"
         }
-    ]
+
+    ],
+    "percentageData": {
+        "labels": ["positive", "neutral", "negative"],
+        "datasets": [{
+            "label": "Positivity",
+            "backgroundColor": [
+                "#2077D1",
+                "#8F8AAB",
+                "#FA6267"
+            ],
+            "hoverBackgroundColor": [
+                "rgb(122 171 223)",
+                "rgb(178 176 190)",
+                "rgb(239 158 160)"
+            ],
+            "data": [65, 59, 45]
+        }]
+    },
+
+    "pieLabel": "Overall positivity level percentage of the teacher"
 
 }

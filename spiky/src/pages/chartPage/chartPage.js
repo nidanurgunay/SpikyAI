@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import "./chartPage.css"
-import BarChart from '../../components/chart/chart.js';
+import TimeChart from '../../components/chart/chart.js';
 function ChartPage() {
 
     return (
         <div id="chart_container">
             <div id="chart_header_container">
                 <div id="chart_header">
-                    Behavioral State
+                   <h2> Behavioral State</h2>
                 </div>
             </div>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
@@ -26,7 +26,7 @@ function ChartPage() {
                     </button>
                 </div>
                 <div id="chart_wrapper">
-                    <BarChart></BarChart>
+                    <TimeChart></TimeChart>
                 </div>
             </div>
 

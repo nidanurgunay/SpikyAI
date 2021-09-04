@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 
 import {
   ChartContainer,
   ChartRow,
   Charts,
-  YAxis,
   Resizable,
-  EventChart
+  EventChart,
+  
 } from "react-timeseries-charts";
 import { TimeSeries, TimeRangeEvent, TimeRange } from "pondjs";
 import EnergyChart from "../../data/chartDataEnergy.json"
 import PositivityChart from "../../data/chartDataPositivity.json"
 import ObjectivityChart from "../../data/chartDataObjectivity.json"
-
+import { Pie } from 'react-chartjs-2'
 
 import "./chart.css"
 
-function BarChart(props) {
+function TimeChart(props) {
   let [selectedChart, setSelectedChart] = useState(EnergyChart);
   const events = selectedChart.data.at(0).periods.map(({ since, till, ...data }) => {
     let range = new TimeRange(new Date(since), new Date(till));
     return new TimeRangeEvent(range, data);
   });
   var series = new TimeSeries({ events });
-
+  
+  
   const handleSeries = (period) => {
     const events = period.map(({ since, till, ...data }) => {
       let range = new TimeRange(new Date(since), new Date(till));
@@ -36,16 +36,19 @@ function BarChart(props) {
 
 
   let [timerange, setTimerange] = useState(series.timerange());
-  let [active, setActive] = useState("");
+  let [active, setActive] = useState("energy");
 
-  const HandleClick = (chart) =>{
-    console.log("dhaskj",selectedChart);
-    setSelectedChart(chart);
-    console.log("dhaskj",selectedChart);
-  }
+
+    
+ 
   return (
     <div id="chart_card">
-  
+    <div id="header_section">
+      <h3 className="result_header">{selectedChart.title}</h3>
+      </div>
+      <div id="header_section">
+      <p className="chart_header">{selectedChart.type}</p>
+      </div>
       <div id="chart_section">
 
         <div id="chart">
@@ -55,10 +58,29 @@ function BarChart(props) {
               enablePanZoom={true}
               onTimeRangeChanged={setTimerange}
               width="88%"
+              showGrid = {true}
+              showGridPosition = "over"
+              paddingLeft={20}
             >
               {selectedChart.data.map((chart) =>
 
-                <ChartRow height="50">
+                <ChartRow 
+                height="70"
+                title={chart.title}
+                titleBoxStyle={{
+              margin:"10px"
+                }}
+                titleStyle={{
+                  fontWeight:"500",
+                  color:chart.barColor,
+                  fontSize:"20px",
+                  fill:chart.barColor,
+                }}
+                axisMargin = "-15"
+                trackerShowTime={true}
+                titleHeight={40}
+                >
+            
                   <Charts>
                     <EventChart
                       series={handleSeries(chart.periods)}
@@ -87,13 +109,32 @@ function BarChart(props) {
           </Resizable>
         </div>
       </div>
+
+      <div id="pie_container">
+        <div id="pie">
+        <Pie
+            data={selectedChart.percentageData}
+            options={{
+              title:{
+                display:true,
+                text:selectedChart.pieLabel,
+                fontSize:20
+              },
+              legend:{
+                display:true,
+                position:'right'
+              }
+            }}
+          />
+        </div>
+      </div>
       <div id="button_container">
-        <button id= "energy" className={active === "energy"  ? "button " : " button default_button "} onClick={(e) => {setActive(e.target.id);HandleClick(EnergyChart) } }>Energy</button>
-        <button id= "objectivity" className={active === "objectivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);HandleClick(ObjectivityChart)} }>Objectivity</button>
-        <button id= "positivity" className={active === "positivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);HandleClick(PositivityChart)} }>Positivity</button>
+        <button id= "energy" className={active === "energy"  ? "button active" : " button default_button "} onClick={(e) => {setActive(e.target.id);setSelectedChart(EnergyChart)} }>Energy</button>
+        <button id= "objectivity" className={active === "objectivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(ObjectivityChart)} }>Objectivity</button>
+        <button id= "positivity" className={active === "positivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(PositivityChart)} }>Positivity</button>
       </div>
     </div>
   );
 };
 
-export default BarChart;
+export default TimeChart;

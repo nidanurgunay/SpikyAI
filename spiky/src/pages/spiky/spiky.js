@@ -11,7 +11,7 @@ import logo6 from "../../assets/icons/functionality-card-image-06.png"
 
 function Spiky() {
 
-    const [logo, setLogo] = useState([logo1, logo2, logo3, logo4, logo5, logo6])
+    const [logo] = useState([logo1, logo2, logo3, logo4, logo5, logo6])
     return (
         <div id="spiky_container">
             <div id="card_container" >
