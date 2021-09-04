@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import "./chartPage.css"
 import TimeChart from '../../components/chart/chart.js';
 function ChartPage() {
-
+    let [percentage, setPercentage] = useState(false);
+    function handlePercantage(){
+        const result=!percentage;
+        setPercentage(result)
+    }
     return (
         <div id="chart_container">
             <div id="chart_header_container">
@@ -13,7 +17,7 @@ function ChartPage() {
             </div>
             <div style={{ display: "flex", justifyContent: "center", textAlign: "center" }}>
                 <div id="area">
-                    <button id="side_button">
+                    <button id="side_button" onClick = {handlePercantage }>
                         <div className="side_icon_div">
                             <p id="side_button_icon"></p>
                         </div>
@@ -26,7 +30,7 @@ function ChartPage() {
                     </button>
                 </div>
                 <div id="chart_wrapper">
-                    <TimeChart></TimeChart>
+                    <TimeChart Percentage={percentage}></TimeChart>
                 </div>
             </div>
 

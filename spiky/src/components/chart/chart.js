@@ -23,8 +23,8 @@ function TimeChart(props) {
     return new TimeRangeEvent(range, data);
   });
   var series = new TimeSeries({ events });
-  
-  
+
+
   const handleSeries = (period) => {
     const events = period.map(({ since, till, ...data }) => {
       let range = new TimeRange(new Date(since), new Date(till));
@@ -38,14 +38,14 @@ function TimeChart(props) {
   let [timerange, setTimerange] = useState(series.timerange());
   let [active, setActive] = useState("energy");
 
-
+  console.log("propss", props.Percentage)
   return (
     <div id="chart_card">
-    <div id="header_section">
-      <h3 className="result_header">{selectedChart.title}</h3>
+      <div id="header_section">
+        <h3 className="result_header">{selectedChart.title}</h3>
       </div>
       <div id="header_section">
-      <p className="chart_header">{selectedChart.type}</p>
+        <p className="chart_header">{selectedChart.type}</p>
       </div>
       <div id="chart_section">
 
@@ -56,29 +56,29 @@ function TimeChart(props) {
               enablePanZoom={true}
               onTimeRangeChanged={setTimerange}
               width="88%"
-              showGrid = {true}
-              showGridPosition = "over"
+              showGrid={true}
+              showGridPosition="over"
               paddingLeft={20}
             >
               {selectedChart.data.map((chart) =>
 
-                <ChartRow 
-                height="70"
-                title={chart.title}
-                titleBoxStyle={{
-              margin:"10px"
-                }}
-                titleStyle={{
-                  fontWeight:"500",
-                  color:chart.barColor,
-                  fontSize:"20px",
-                  fill:chart.barColor,
-                }}
-                axisMargin = "-15"
-                trackerShowTime={true}
-                titleHeight={40}
+                <ChartRow
+                  height="70"
+                  title={chart.title}
+                  titleBoxStyle={{
+                    margin: "10px"
+                  }}
+                  titleStyle={{
+                    fontWeight: "500",
+                    color: chart.barColor,
+                    fontSize: "20px",
+                    fill: chart.barColor,
+                  }}
+                  axisMargin="-15"
+                  trackerShowTime={true}
+                  titleHeight={40}
                 >
-            
+
                   <Charts>
                     <EventChart
                       series={handleSeries(chart.periods)}
@@ -107,29 +107,36 @@ function TimeChart(props) {
           </Resizable>
         </div>
       </div>
+      {props.Percentage ?
+        <div>
+          <div id="header_section">
+            <p className="chart_header">Pie Graph</p>
 
-      <div id="pie_container">
-        <div id="pie">
-        <Pie
-            data={selectedChart.percentageData}
-            options={{
-              title:{
-                display:true,
-                text:selectedChart.pieLabel,
-                fontSize:20
-              },
-              legend:{
-                display:true,
-                position:'right'
-              }
-            }}
-          />
-        </div>
-      </div>
+          </div>
+          <div id="pie_container">
+            <div id="pie">
+              <Pie
+                data={selectedChart.percentageData}
+                options={{
+                  title: {
+                    display: true,
+                    text: selectedChart.pieLabel,
+                    fontSize: 20
+                  },
+                  legend: {
+                    display: true,
+                    position: 'right'
+                  }
+                }}
+              />
+            </div>
+          </div>
+        </div> : null}
+
       <div id="button_container">
-        <button id= "energy" className={active === "energy"  ? "button active_button" : " button default_button "} onClick={(e) => {setActive(e.target.id);setSelectedChart(EnergyChart)} }>Energy</button>
-        <button id= "objectivity" className={active === "objectivity"  ? "button active_button" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(ObjectivityChart)} }>Objectivity</button>
-        <button id= "positivity" className={active === "positivity"  ? "button active_button" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(PositivityChart)} }>Positivity</button>
+        <button id="energy" className={active === "energy" ? "button active_button" : " button default_button "} onClick={(e) => { setActive(e.target.id); setSelectedChart(EnergyChart) }}>Energy</button>
+        <button id="objectivity" className={active === "objectivity" ? "button active_button" : "button default_button"} onClick={(e) => { setActive(e.target.id); setSelectedChart(ObjectivityChart) }}>Objectivity</button>
+        <button id="positivity" className={active === "positivity" ? "button active_button" : "button default_button"} onClick={(e) => { setActive(e.target.id); setSelectedChart(PositivityChart) }}>Positivity</button>
       </div>
     </div>
   );
