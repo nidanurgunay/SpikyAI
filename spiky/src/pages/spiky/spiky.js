@@ -38,7 +38,7 @@ function Spiky() {
                                 {
                                     card.link ?
                                         <div style={{ marginTop: "3vh", marginBottom: "0px" }}>
-                                            <a className="link" href="https://spiky.ai" target='_blank' rel="noreferrer">
+                                            <a className="spiky_link" href="https://spiky.ai" target='_blank' rel="noreferrer">
                                                 <p>{card.linkHeader}</p>
                                             </a>
                                         </div> : null

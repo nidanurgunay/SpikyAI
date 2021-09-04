@@ -6,8 +6,8 @@ import {
   Charts,
   Resizable,
   EventChart,
-  
 } from "react-timeseries-charts";
+
 import { TimeSeries, TimeRangeEvent, TimeRange } from "pondjs";
 import EnergyChart from "../../data/chartDataEnergy.json"
 import PositivityChart from "../../data/chartDataPositivity.json"
@@ -39,8 +39,6 @@ function TimeChart(props) {
   let [active, setActive] = useState("energy");
 
 
-    
- 
   return (
     <div id="chart_card">
     <div id="header_section">
@@ -129,9 +127,9 @@ function TimeChart(props) {
         </div>
       </div>
       <div id="button_container">
-        <button id= "energy" className={active === "energy"  ? "button active" : " button default_button "} onClick={(e) => {setActive(e.target.id);setSelectedChart(EnergyChart)} }>Energy</button>
-        <button id= "objectivity" className={active === "objectivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(ObjectivityChart)} }>Objectivity</button>
-        <button id= "positivity" className={active === "positivity"  ? "button active" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(PositivityChart)} }>Positivity</button>
+        <button id= "energy" className={active === "energy"  ? "button active_button" : " button default_button "} onClick={(e) => {setActive(e.target.id);setSelectedChart(EnergyChart)} }>Energy</button>
+        <button id= "objectivity" className={active === "objectivity"  ? "button active_button" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(ObjectivityChart)} }>Objectivity</button>
+        <button id= "positivity" className={active === "positivity"  ? "button active_button" : "button default_button"} onClick={(e) => {setActive(e.target.id);setSelectedChart(PositivityChart)} }>Positivity</button>
       </div>
     </div>
   );

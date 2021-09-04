@@ -14,11 +14,13 @@ const NavBar = () => {
                 ></img>
             </div>
             <div id="link_container">
+                <div id="link_wrapper">
                 <div className="link">
                     <NavLink  className="link_text" to="/">Home</NavLink>
                 </div>
                 <div className="link">
                     <NavLink  className="link_text" to="/charts">Charts</NavLink>
+                </div>
                 </div>
             </div>
         </div>

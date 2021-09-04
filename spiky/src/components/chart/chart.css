@@ -73,7 +73,7 @@
     border: solid;
 }
 
-.active {
+.active_button {
     background-color: #2077D1;
     border: none;
     color: #FFFFFF;
@@ -99,7 +99,7 @@
     transition: 0s
 }
 
-.active:hover {
+.active_button:hover {
     background-color: #4f90d6;
 }
 
