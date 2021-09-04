@@ -1,5 +1,11 @@
+#chart_main {
+    background-color: #f7f7f7;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
 #chart_container {
-    background-color: #fafafc;
     height: auto;
     padding: 50px 30px;
     width: auto;
@@ -26,8 +32,7 @@
 }
 
 #chart_header {
-    width: 90%;
-    padding-left: 120px;
+    width: 85%;
 }
 
 #side_button {
@@ -36,7 +41,7 @@
     border: none;
     height: 100%;
     border-radius: 50px 0px 0px 50px;
-    width: 50%;
+    width: 50px;
     font-size: 20px;
     color: white;
     z-index: 99999;
@@ -71,7 +76,6 @@
     display: flex;
     height: 35%;
     justify-content: center;
-    padding-top: 70px;
 }
 
 #button_icon_container_down {
@@ -79,10 +83,23 @@
     height: 30%;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 70px;
 }
 
 .button_icon {
     padding: 20px 0px;
     height: fit-content;
+}
+
+@media (max-width: 610px) {
+    .button_icon {
+        padding: 20px 0px;
+        height: fit-content;
+    }
+}
+
+@media (max-width:820px) {
+    .button_icon {
+        padding: 10px 0px;
+        height: fit-content;
+    }
 }

@@ -12,6 +12,7 @@ function ChartPage() {
         setPercentage(result)
     }
     return (
+        <div id="chart_main">
         <div id="chart_container">
             <div id="chart_header_container">
                 <div id="chart_header">
@@ -51,7 +52,7 @@ function ChartPage() {
                     <Chart Percentage={percentage}></Chart>
                 </div>
             </div>
-
+            </div>
         </div>
     );
 };

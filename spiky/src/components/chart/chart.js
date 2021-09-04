@@ -42,7 +42,9 @@ function Chart(props) {
   return (
     <div id="chart_card">
       <div id="header_section">
-        <h3 className="result_header">{selectedChart.title}</h3>
+      <div id="header_wrapper">
+        <h3 id="result_header">{selectedChart.title}</h3>
+      </div>
       </div>
       <div id="header_section">
         <p className="chart_header">{selectedChart.type}</p>
@@ -55,7 +57,7 @@ function Chart(props) {
               timeRange={timerange}
               enablePanZoom={true}
               onTimeRangeChanged={setTimerange}
-              width="88%"
+              width="100%"
               showGrid={true}
               showGridPosition="over"
               paddingLeft={20}
