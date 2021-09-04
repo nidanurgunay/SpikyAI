@@ -39,6 +39,11 @@
     width: 50%;
     font-size: 20px;
     color: white;
+    z-index: 99999;
+}
+
+#side_button:hover {
+    background-color: rgb(122 171 223);
 }
 
 #side_button_text {
@@ -49,6 +54,8 @@
     transform: rotate(270deg);
     font-size: 20px;
     color: white;
+    height: 90px;
+    width: fit-content;
 }
 
 #side_button_icon {
@@ -57,5 +64,25 @@
 }
 
 #side_text_div {
+    height: fit-content;
+}
+
+#button_icon_container_up {
+    display: flex;
+    height: 35%;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+#button_icon_container_down {
+    display: flex;
+    height: 30%;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 70px;
+}
+
+.button_icon {
+    padding: 20px 0px;
     height: fit-content;
 }

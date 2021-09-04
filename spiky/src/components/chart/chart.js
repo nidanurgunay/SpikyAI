@@ -16,7 +16,7 @@ import { Pie } from 'react-chartjs-2'
 
 import "./chart.css"
 
-function TimeChart(props) {
+function Chart(props) {
   let [selectedChart, setSelectedChart] = useState(EnergyChart);
   const events = selectedChart.data.at(0).periods.map(({ since, till, ...data }) => {
     let range = new TimeRange(new Date(since), new Date(till));
@@ -66,7 +66,6 @@ function TimeChart(props) {
                   height="70"
                   title={chart.title}
                   titleBoxStyle={{
-                    margin: "10px"
                   }}
                   titleStyle={{
                     fontWeight: "500",
@@ -74,7 +73,6 @@ function TimeChart(props) {
                     fontSize: "20px",
                     fill: chart.barColor,
                   }}
-                  axisMargin="-15"
                   trackerShowTime={true}
                   titleHeight={40}
                 >
@@ -142,4 +140,4 @@ function TimeChart(props) {
   );
 };
 
-export default TimeChart;
+export default Chart;
