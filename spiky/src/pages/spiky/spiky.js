@@ -16,11 +16,10 @@ function Spiky() {
         <div id="spiky_container">
             <div id="card_container" >
                 {data.map((card) =>
-                    <div className={" col-md-6 col-xl-4 col-12" + card.margin} style={{ margin: "0", color: card.color }}>
-
+                    <div className={"col-md-6 col-xl-4 col-12"} style={{ margin: "0", color: card.color }}>
                         <div className={"card " + card.margin}>
                             <div >
-                                <div className="logo_cont   ainer">
+                                <div className="logo_container">
                                     <img
                                         src={logo[card.id]}
                                         alt={card.id}
@@ -39,7 +38,7 @@ function Spiky() {
                                     card.link ?
                                         <div style={{ marginTop: "3vh", marginBottom: "0px" }}>
                                             <a className="spiky_link" href="https://spiky.ai" target='_blank' rel="noreferrer">
-                                                <p>{card.linkHeader}</p>
+                                                <p className="card_link_title">{card.linkHeader}</p>
                                             </a>
                                         </div> : null
                                 }

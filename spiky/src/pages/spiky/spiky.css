@@ -68,33 +68,13 @@
     box-shadow: 20px 20px 20px rgb(0 0 0 / 10%);
     background-color: #fff;
     height: 75%;
-}
-
-@keyframes zoom-in {
-    0% {
-        transform: scale(1, 1);
-    }
-    60% {
-        transform: scale(1.1, 1.1);
-    }
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
-@-webkit-keyframes zoom-in {
-    0%,
-    100% {
-        transform: scale(1, 1);
-    }
-    60% {
-        transform: scale(1.1, 1.1);
-    }
+    transition: 0.2s;
 }
 
 .card:hover {
-    animation: zoom-in 1s ease-out forwards;
-    -webkit-animation: zoom-in 1s ease-out forwards;
+    opacity: 1;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
 }
 
 .logo_container {
@@ -133,4 +113,8 @@
     margin-bottom: 8px;
     font-weight: 700;
     font-size: 14px;
+}
+
+.card_link_title:hover {
+    transform: scale(1.02);
 }

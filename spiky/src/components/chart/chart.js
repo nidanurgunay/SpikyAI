@@ -38,7 +38,7 @@ function Chart(props) {
   let [timerange, setTimerange] = useState(series.timerange());
   let [active, setActive] = useState("energy");
 
-  console.log("propss", props.Percentage)
+
   return (
     <div id="chart_card">
       <div id="header_section">
