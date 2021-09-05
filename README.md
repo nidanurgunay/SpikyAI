@@ -40,7 +40,7 @@ Chart page and chart component are developed for the task 2. Chart component con
 
 ## Installation and Setup Instructions 
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+Clone down this repository. You will need `node` and `npm` installed globally on your machine. Open the spiky folder in your compiler.
 
 Installation:
 
