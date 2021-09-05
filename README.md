@@ -3,7 +3,7 @@
 This project was developed for the SpikyAI Frontend Hiring Task. Project consists of 2 pages and 2 components in order to achieve the requirements of the task 1 and task 2. Responsiveness is  considered and project is fully responsive for mobile, tablet and desktop screens. 
 
 ## Task 1
-Home page is designed for the task 1 and it is the implementation of the card section from [spiky.ai](https://spiky.ai/) homepage. This task achieved the requirements of the task 1. Page is fully responsible for all devices and creative css animation is added.   
+Home page is designed for the task 1 and it is the implementation of the card section from [spiky.ai](https://spiky.ai/) homepage. This task achieved the requirements of the task 1. Page is fully responsible for all devices and creative css animation is added. Hence card data is retrieved from a json file, it is possible to create various number of card with distinct işons and content.   
 
 ## Task 2
 Chart page and chart component are developed for the task 2. Chart component consists of 1 timeline chart and 1 pie chart. Timeline chart is implemented by using react-timeseries-charts and pie chart is by using react-chartjs-2 frameworks. Chart component is dynamic and can be used with different names, labels and data. Data folder consists of 3 json file for the charts of energy, positivity, and objectivity level of the teacher.
